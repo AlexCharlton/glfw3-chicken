@@ -1,0 +1,9 @@
+;; glfw3.setup -*- scheme -*-
+
+(compile -d0 -O2 -J -s -lglfw glfw3.scm)
+(compile -d0 -O2 -s glfw3.import.scm)
+
+(install-extension
+ 'glfw3
+ '("glfw3.so" "glfw3.import.so")
+ '((version "0.1.0")))

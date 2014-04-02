@@ -1,0 +1,9 @@
+;; glfw3.meta -*- scheme -*-
+
+((synopsis "Bindings to the GLFW3 OpenGL window and event management library")
+ (author "Alex Charlton")
+ (category graphics)
+ (license "BSD")
+ (depends)
+ (test-depends)
+ (foreign-depends))
