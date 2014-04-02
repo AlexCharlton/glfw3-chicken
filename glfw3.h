@@ -4,6 +4,7 @@
 // + add struct names (identical to typedefs)
 // + add ___safe to glfwWaitEvents and glfwPollEvents
 // + remove const from GLFWerrorfun typedef (silences warning)
+// + remove version defs
 // + redefine ints as bools where appropriate
 // + redefine defs whose value was other defs
 // + removed SYSTEM/COMPILER SPECIFIC section (silences warnings)
@@ -45,30 +46,6 @@
 /*************************************************************************
  * GLFW API tokens
  *************************************************************************/
-
-/*! @name GLFW version macros
- *  @{ */
-/*! @brief The major version number of the GLFW library.
- *
- *  This is incremented when the API is changed in non-compatible ways.
- *  @ingroup init
- */
-#define GLFW_VERSION_MAJOR          3
-/*! @brief The minor version number of the GLFW library.
- *
- *  This is incremented when features are added to the API but it remains
- *  backward-compatible.
- *  @ingroup init
- */
-#define GLFW_VERSION_MINOR          0
-/*! @brief The revision number of the GLFW library.
- *
- *  This is incremented when a bug fix release is made that does not contain any
- *  API changes.
- *  @ingroup init
- */
-#define GLFW_VERSION_REVISION       1
-/*! @} */
 
 /*! @name Key and button actions
  *  @{ */
