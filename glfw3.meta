@@ -4,6 +4,4 @@
  (author "Alex Charlton")
  (category graphics)
  (license "BSD")
- (depends)
- (test-depends)
- (foreign-depends))
+ (depends bind))
