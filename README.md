@@ -75,6 +75,7 @@ This example must be compiled due to the external function definition.
 Alex Charlton
 
 ## Changelog
+* 0.2.0: Add `make-window`, `with-window`
 * 0.1.0
 
 ## Licence
