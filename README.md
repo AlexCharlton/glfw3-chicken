@@ -15,7 +15,7 @@ For information regarding the GLFW API, see the official [GLFW documentation](ht
 
 ### High-level interface
 
-#### make-window
+#### `make-window`
     (make-window WIDTH HEIGHT NAME
 	             #!key (fullscreen? #f)
 				 resizable
@@ -39,10 +39,10 @@ For information regarding the GLFW API, see the official [GLFW documentation](ht
 
 Create the window with title string NAME and dimensions WIDTH by HEIGHT. The keys correspond to the available [GLFW window hints](http://www.glfw.org/docs/latest/window.html#window_hints). `resizable`, `visible`, `decorated`, `sterio`, `srgb-capable`, `opengl-forward-compat`, `opengl-debug-context` accept boolean arguments, while all other accept either an integer or an appropriate GLFW constant as per the documentation.
 
-#### *window*
+#### `*window*`
 This variable contains the GLFW window object that is created by `make-window`.
 
-#### with-window
+#### `with-window`
     [macro] (with-window (WIDTH HEIGHT NAME . KEYS) BODY ...)
 
 Initializes GLFW, creates a window as per `make-window`, and runs BODY before cleaning up. If [opengl-glew](https://wiki.call-cc.org/eggref/4/opengl-glew) has been included in the same file that this macro is used, opengl-glew will also be initialized.
