@@ -60,7 +60,7 @@ This example must be compiled due to the external function definition.
     void
   (cond
    [(and (eq? key glfw:+key-escape+) (eq? action glfw:+press+))
-    (glfw:set-window-should-close *window* #t)]))
+    (glfw:set-window-should-close glfw:*window* #t)]))
 
 (glfw:with-window (640 480 "Example" resizable: #f)
     (glfw:set-key-callback glfw:*window* #$keyCallback)
