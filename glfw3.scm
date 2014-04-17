@@ -12,7 +12,7 @@
 
 (bind-file* "glfw3.h")
 
-(define *window* #f)
+(define window (make-parameter #f))
 
 (define (make-window w h name #!rest hints #!key [fullscreen? #f])
   (define *hints*
@@ -48,13 +48,13 @@
                                       (if val 1 0)
                                       val))))
       (loop (cddr hints))))
-  (set! *window* (create-window w h name
+  (window (create-window w h name
                                 (if fullscreen?
                                     (get-primary-monitor)
                                     #f)
                                 #f))
-  (make-context-current *window*)
-  *window*)
+  (make-context-current (window))
+  (window))
 
 (define-syntax with-window
   (syntax-rules ()
@@ -65,7 +65,7 @@
        (when (feature? #:opengl-glew)
            (opengl-glew#init))
        body ...
-       (destroy-window *window*)
+       (destroy-window (window))
        (terminate))]))
 
 ) ; end module
