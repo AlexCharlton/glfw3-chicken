@@ -8,4 +8,4 @@
 (install-extension
  'glfw3
  '("glfw3.so" "glfw3.import.so")
- '((version "0.2.0")))
+ '((version "0.3.0")))
