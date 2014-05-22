@@ -1,11 +1,14 @@
 ;; glfw3.setup -*- scheme -*-
 
 (if (feature? unix:)
-    (compile -d0 -O2 -J -s -l:libglfw.so.3 glfw3.scm)
-    (compile -d0 -O2 -J -s -lglfw glfw3.scm))
+    (compile -d0 -O2 -J -s -l:libglfw.so.3 glfw3-bindings.scm)
+    (compile -d0 -O2 -J -s -lglfw glfw3-bindings.scm))
+(compile -d0 -O2 -s glfw3-bindings.import.scm)
+
+(compile -d0 -O2 -J -s glfw3.scm)
 (compile -d0 -O2 -s glfw3.import.scm)
 
 (install-extension
  'glfw3
- '("glfw3.so" "glfw3.import.so")
- '((version "0.3.0")))
+ '("glfw3.so" "glfw3.import.so" "glfw3-bindings.so" "glfw3-bindings.import.so")
+ '((version "0.4.0")))

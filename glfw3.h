@@ -691,7 +691,7 @@ typedef struct GLFWgammaramp
  *
  *  @ingroup init
  */
-bool glfwInit(void);
+___safe bool glfwInit(void);
 
 /*! @brief Terminates the GLFW library.
  *
@@ -1060,7 +1060,7 @@ void glfwWindowHint(int target, int hint);
  *
  *  @ingroup window
  */
-GLFWwindow* glfwCreateWindow(int width, int height, const char* title, GLFWmonitor* monitor, GLFWwindow* share);
+___safe GLFWwindow* glfwCreateWindow(int width, int height, const char* title, GLFWmonitor* monitor, GLFWwindow* share);
 
 /*! @brief Destroys the specified window and its context.
  *
@@ -2016,7 +2016,7 @@ void glfwSwapBuffers(GLFWwindow* window);
  *
  *  @ingroup context
  */
-void glfwSwapInterval(int interval);
+___safe void glfwSwapInterval(int interval);
 
 /*! @brief Returns whether the specified extension is available.
  *
