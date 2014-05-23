@@ -262,8 +262,6 @@
      (begin
        (init)
        (make-window w h name . keys)
-       (when (feature? #:opengl-glew)
-           (opengl-glew#init))
        body ...
        (%destroy-window (window))
        (%terminate))]))
