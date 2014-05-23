@@ -42,7 +42,7 @@ Sets the current context to the window that was created. Also sets the swap inte
 
     [macro] (with-window (WIDTH HEIGHT NAME . KEYS) BODY ...)
 
-Initializes GLFW, creates a window as per `make-window`, and runs `BODY` before cleaning up. If [opengl-glew](https://wiki.call-cc.org/eggref/4/opengl-glew) has been included in the same file that this macro is used, opengl-glew will also be initialized.
+Initializes GLFW, creates a window as per `make-window`, and runs `BODY` before cleaning up.
 
 ### Callbacks
 `glfw3` provides parameters which contain the functions that are called from GLFW callbacks. The GLFW callbacks are initialized to call these parameters when `init` and `make-window` or `with-window` are used, but they can be changed with the callback setter functions.
@@ -124,7 +124,7 @@ Set the callback functions associated with `WINDOW`. `WINDOW` defaults to `windo
 
 ## Example
 ``` Scheme
-(use (prefix glfw3 glfw:) (prefix opengl-glew gl:))
+(use (prefix glfw3 glfw:))
 
 (glfw:key-callback (lambda (window key scancode action mods)
                      (cond
