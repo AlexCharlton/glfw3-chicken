@@ -140,7 +140,11 @@ Set the callback functions associated with `WINDOW`. `WINDOW` defaults to `windo
 ```
 
 ## Version history
-### Version 0.4.0
+### Version 0.4.1
+* Remove magic opengl-glew initialization
+
+**Version 0.4.0**
+
 * Reorganize into two modules
 * Add callback functions and parameters
 * Add `init`
