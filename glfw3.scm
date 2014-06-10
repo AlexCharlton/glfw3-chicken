@@ -30,10 +30,13 @@
                set-scroll-callback!
                set-key-callback!
                set-char-callback!
-               set-monitor-callback!)
+               set-monitor-callback!
+               set-window-pos
+               set-cursor-pos
+               make-vidmode)
 
 (import chicken scheme foreign)
-(use data-structures (prefix glfw3-bindings %))
+(use data-structures (prefix glfw3-bindings %) miscmacros)
 
 (reexport (except glfw3-bindings
                   init
@@ -189,6 +192,9 @@
   (%set-char-callback (or win (window))
                       (or callback #$glfw3CharCallback)))
 
+;;; Aliases
+(define set-window-position %set-window-pos)
+(define set-cursor-position %set-cursor-pos)
 
 ;;; Initialization and window creation
 (define (init)

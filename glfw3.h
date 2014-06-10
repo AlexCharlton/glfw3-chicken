@@ -735,7 +735,7 @@ void glfwTerminate(void);
  *
  *  @ingroup init
  */
-void glfwGetVersion(int* major, int* minor, int* rev);
+void glfwGetVersion(___out int* major, ___out int* minor, ___out int* rev);
 
 /*! @brief Returns a string describing the compile-time configuration.
  *
@@ -812,7 +812,7 @@ GLFWerrorfun glfwSetErrorCallback(GLFWerrorfun cbfun);
  *
  *  @ingroup monitor
  */
-GLFWmonitor** glfwGetMonitors(int* count);
+GLFWmonitor** glfwGetMonitors(___out int* count);
 
 /*! @brief Returns the primary monitor.
  *
@@ -838,7 +838,7 @@ GLFWmonitor* glfwGetPrimaryMonitor(void);
  *
  *  @ingroup monitor
  */
-void glfwGetMonitorPos(GLFWmonitor* monitor, int* xpos, int* ypos);
+void glfwGetMonitorPos(GLFWmonitor* monitor, ___out int* xpos, ___out int* ypos);
 
 /*! @brief Returns the physical size of the monitor.
  *
@@ -857,7 +857,7 @@ void glfwGetMonitorPos(GLFWmonitor* monitor, int* xpos, int* ypos);
  *
  *  @ingroup monitor
  */
-void glfwGetMonitorPhysicalSize(GLFWmonitor* monitor, int* width, int* height);
+void glfwGetMonitorPhysicalSize(GLFWmonitor* monitor, ___out int* width, ___out int* height);
 
 /*! @brief Returns the name of the specified monitor.
  *
@@ -915,7 +915,7 @@ GLFWmonitorfun glfwSetMonitorCallback(GLFWmonitorfun cbfun);
  *
  *  @ingroup monitor
  */
-const GLFWvidmode* glfwGetVideoModes(GLFWmonitor* monitor, int* count);
+const GLFWvidmode* glfwGetVideoModes(GLFWmonitor* monitor, ___out int* count);
 
 /*! @brief Returns the current mode of the specified monitor.
  *
@@ -1137,7 +1137,7 @@ void glfwSetWindowTitle(GLFWwindow* window, const char* title);
  *
  *  @ingroup window
  */
-void glfwGetWindowPos(GLFWwindow* window, int* xpos, int* ypos);
+void glfwGetWindowPos(GLFWwindow* window, ___out int* xpos, ___out int* ypos);
 
 /*! @brief Sets the position of the client area of the specified window.
  *
@@ -1186,7 +1186,7 @@ void glfwSetWindowPos(GLFWwindow* window, int xpos, int ypos);
  *
  *  @ingroup window
  */
-void glfwGetWindowSize(GLFWwindow* window, int* width, int* height);
+void glfwGetWindowSize(GLFWwindow* window, ___out int* width, ___out int* height);
 
 /*! @brief Sets the size of the client area of the specified window.
  *
@@ -1227,7 +1227,7 @@ void glfwSetWindowSize(GLFWwindow* window, int width, int height);
  *
  *  @ingroup window
  */
-void glfwGetFramebufferSize(GLFWwindow* window, int* width, int* height);
+void glfwGetFramebufferSize(GLFWwindow* window, ___out int* width, ___out int* height);
 
 /*! @brief Iconifies the specified window.
  *
@@ -1646,7 +1646,7 @@ int glfwGetMouseButton(GLFWwindow* window, int button);
  *
  *  @ingroup input
  */
-void glfwGetCursorPos(GLFWwindow* window, double* xpos, double* ypos);
+void glfwGetCursorPos(GLFWwindow* window, ___out double* xpos, ___out double* ypos);
 
 /*! @brief Sets the position of the cursor, relative to the client area of the window.
  *
@@ -1823,7 +1823,7 @@ bool glfwJoystickPresent(int joy);
  *
  *  @ingroup input
  */
-const float* glfwGetJoystickAxes(int joy, int* count);
+const float* glfwGetJoystickAxes(int joy, ___out int* count);
 
 /*! @brief Returns the state of all buttons of the specified joystick.
  *
@@ -1842,7 +1842,7 @@ const float* glfwGetJoystickAxes(int joy, int* count);
  *
  *  @ingroup input
  */
-const unsigned char* glfwGetJoystickButtons(int joy, int* count);
+const unsigned char* glfwGetJoystickButtons(int joy, ___out int* count);
 
 /*! @brief Returns the name of the specified joystick.
  *
