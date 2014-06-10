@@ -122,6 +122,61 @@ Called when a monitor is connected or disconnected. Expects a function with the 
 
 Set the callback functions associated with `WINDOW`. `WINDOW` defaults to `window`. `CALLBACK` defaults to an external function that calls the corresponding callback parameter.
 
+### Modified functions 
+The following functions take a different number of arguments than their GLFW counterparts. This is because the original function accepted values passed by reference for modification.
+
+(get-version)
+
+Returns three values: the major version , minor version , and revision number of the GLFW library.
+
+(get-monitors)
+
+Returns two values: A pointer to an array of GLFWmonitor references, and the number of values in the array.
+
+(get-monitor-position MONITOR)
+
+Returns two values: the x and y position, in screen coordinates, of the upper-left corner of the `MONITOR`’s viewport on the virtual screen.
+
+(get-monitor-physical-size MONITOR)
+
+Returns two values: the physical width and height, in millimetres, of the `MONITOR`.
+
+(get-video-modes MONITOR)
+
+Returns two values: A pointer to an array of video modes, and the number of values in the array.
+
+(get-window-position WINDOW)
+
+Returns two values: the x and y position, in screen coordinates, of the upper-left corner of the `WINDOW`.
+
+(set-window-position WINDOW X Y)
+
+Set the position of the upper-left corner of the `WINDOW`.
+
+(get-window-size WINDOW)
+
+Returns two values: the width and height, in screen coordinates, of the `WINDOW`.
+
+(get-framebuffer-size WINDOW)
+
+Returns two values: the width and height, in pixels, of the framebuffer of `WINDOW`.
+
+(get-cursor-position WINDOW)
+
+Returns two values: the x and y position of the cursor, relative to the upper-left edge of the client area of the `WINDOW`.
+
+(set-cursor-position WINDOW X Y)
+
+Set the position of the cursor, relative to the upper-left edge of the client area of the `WINDOW`.
+
+(get-joystick-axes JOYSTICK)
+
+Returns two values: a pointer to an array of floats representing the values of all axes of the specified joystick, and the number of values in the array.
+
+(get-joystick-buttons JOYSTICK)
+
+Returns two values: a pointer to an array of bytes representing the state of all buttons on the specified joystick, and the number of values in the array.
+
 ## Example
 ``` Scheme
 (use (prefix glfw3 glfw:))
