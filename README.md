@@ -195,11 +195,19 @@ Returns two values: a pointer to an array of bytes representing the state of all
 ```
 
 ## Version history
+### Version 0.5.0
+10 June 2014
+
+* Return output values passed by reference
+
 ### Version 0.4.1
-* Remove magic opengl-glew initialization
+23 May 2014
+
+* Remove magic opengl-glew initialization (Thanks to terpri!)
 
 **Version 0.4.0**
 
+22 May 2014
 * Reorganize into two modules
 * Add callback functions and parameters
 * Add `init`
