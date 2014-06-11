@@ -36,7 +36,7 @@
                make-vidmode)
 
 (import chicken scheme foreign)
-(use data-structures (prefix glfw3-bindings %) miscmacros)
+(use data-structures (prefix glfw3-bindings %))
 
 (reexport (except glfw3-bindings
                   init
