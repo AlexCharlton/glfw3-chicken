@@ -195,7 +195,13 @@ Returns two values: a pointer to an array of bytes representing the state of all
 ```
 
 ## Version history
-### Version 0.5.0
+### Version 0.5.1
+11 June 2014
+
+* Remove unintended use of miscmacros
+
+**Version 0.5.0**
+
 10 June 2014
 
 * Return output values passed by reference
