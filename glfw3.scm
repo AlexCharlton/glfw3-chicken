@@ -215,7 +215,7 @@
   (window win)
   (%make-context-current win))
 
-(define (make-window w h name #!rest hints #!key [fullscreen? #f])
+(define (make-window w h name . hints)
   (define *hints*
     `((resizable: ,+resizable+ bool:)
       (visible: ,+visible+ bool:)
@@ -250,11 +250,10 @@
                                        val))))
       (loop (cddr hints))))
   (make-context-current (%create-window w h name
-                                        (if fullscreen?
-                                            (get-primary-monitor)
-                                            #f)
+                                        (and (get-keyword fullscreen: hints)
+                                             (get-primary-monitor))
                                         #f))
-  (%swap-interval 1)
+  (%swap-interval (get-keyword swap-interval: hints (lambda () 1)))
   (set-monitor-callback!)
   (set-window-position-callback!)
   (set-window-size-callback!)
