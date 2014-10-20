@@ -195,7 +195,14 @@ Returns two values: a pointer to an array of bytes representing the state of all
 ```
 
 ## Version history
-### Version 0.5.1
+### Version 0.5.2
+20 October 2014
+
+* Add `swap-interval` keyword to `make-window`
+* Add some aliases for consistency
+
+**Version 0.5.1**
+
 11 June 2014
 
 * Remove unintended use of miscmacros
