@@ -34,11 +34,11 @@ Contains the window associated with the current context.
 
 Performs `glfwMakeContextCurrent` while setting `window`.
 
-    [procedure] (make-window WIDTH HEIGHT NAME #!key (fullscreen? #f) resizable visible decorated red-bits green-bits blue-bits alpha-bits depth-bits stencil-bits accum-red-bits accum-green-bits accum-blue-bits accum-alpha-bits aux-buffers samples refresh-rate sterio srgb-capable client-api context-version-major context-version-minor context-robustness opengl-forward-compat opengl-debug-context opengl-profile)
+    [procedure] (make-window WIDTH HEIGHT NAME #!key (fullscreen? #f) (swap-interval 1) resizable visible decorated red-bits green-bits blue-bits alpha-bits depth-bits stencil-bits accum-red-bits accum-green-bits accum-blue-bits accum-alpha-bits aux-buffers samples refresh-rate sterio srgb-capable client-api context-version-major context-version-minor context-robustness opengl-forward-compat opengl-debug-context opengl-profile)
 
 Create a window with title string `NAME` and dimensions `WIDTH` by `HEIGHT`. The keys correspond to the available [GLFW window hints](http://www.glfw.org/docs/latest/window.html#window_hints). `resizable`, `visible`, `decorated`, `sterio`, `srgb-capable`, `opengl-forward-compat`, `opengl-debug-context` accept boolean arguments, while all other accept either an integer or an appropriate GLFW constant as per the documentation. 
 
-Sets the current context to the window that was created. Also sets the swap interval of the window to `1`, for convenience. This can be later set by `swap-interval`. Finally, this initializes all of the window-specific callbacks.
+Sets the current context to the window that was created. The swap interval of the window is set to the value of the`swap-interval` key. Finally, this initializes all of the window-specific callbacks.
 
     [macro] (with-window (WIDTH HEIGHT NAME . KEYS) BODY ...)
 
@@ -120,7 +120,7 @@ Called when a monitor is connected or disconnected. Expects a function with the 
     [procedure] (set-char-callback! [WINDOW [CALLBACK]])
     [procedure] (set-monitor-callback! [WINDOW [CALLBACK]])
 
-Set the callback functions associated with `WINDOW`. `WINDOW` defaults to `window`. `CALLBACK` defaults to an external function that calls the corresponding callback parameter.
+Set the callback functions associated with `WINDOW`. Used when the callback parameters are not desired. `WINDOW` defaults to `window`. `CALLBACK` defaults to an external function that calls the corresponding callback parameter.
 
 ### Modified functions 
 The following functions take a different number of arguments than their GLFW counterparts. This is because the original function accepted values passed by reference for modification.
