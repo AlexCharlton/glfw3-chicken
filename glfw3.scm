@@ -31,9 +31,13 @@
                set-key-callback!
                set-char-callback!
                set-monitor-callback!
-               set-window-pos
-               set-cursor-pos
-               make-vidmode)
+               get-monitor-position
+               get-window-position
+               get-cursor-position
+               set-window-position
+               set-cursor-position
+               window-should-close?
+               )
 
 (import chicken scheme foreign)
 (use data-structures (prefix glfw3-bindings %))
@@ -194,7 +198,11 @@
 
 ;;; Aliases
 (define set-window-position %set-window-pos)
+(define get-window-position %get-window-pos)
+(define get-monitor-position %get-monitor-pos)
 (define set-cursor-position %set-cursor-pos)
+(define get-cursor-position %get-cursor-pos)
+(define window-should-close? %window-should-close)
 
 ;;; Initialization and window creation
 (define (init)
