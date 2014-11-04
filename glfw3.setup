@@ -1,8 +1,11 @@
 ;; glfw3.setup -*- scheme -*-
 
-(if (feature? unix:)
-    (compile -d0 -O2 -J -s -l:libglfw.so.3 glfw3-bindings.scm)
-    (compile -d0 -O2 -J -s -lglfw glfw3-bindings.scm))
+(cond ((feature? unix:)
+       (compile -d0 -O2 -J -s -l:libglfw.so.3 glfw3-bindings.scm))
+      ((or (feature? mingw32:)
+	   (feature? mingw64:))
+       (compile -d0 -O2 -J -s -lglfw -lopengl32 -lgdi32 glfw3-bindings.scm))
+      (else (compile -d0 -O2 -J -s -lglfw glfw3-bindings.scm)))
 (compile -d0 -O2 -s glfw3-bindings.import.scm)
 
 (compile -d0 -O2 -J -s glfw3.scm)
