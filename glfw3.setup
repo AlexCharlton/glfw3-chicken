@@ -1,12 +1,21 @@
 ;; glfw3.setup -*- scheme -*-
 
-(if (feature? unix:)
-    (compile -d0 -O2 -J -s -l:libglfw.so.3 glfw3-bindings.scm)
-    (compile -d0 -O2 -J -s -lglfw glfw3-bindings.scm))
-(compile -d0 -O2 -s glfw3-bindings.import.scm)
 
-(compile -d0 -O2 -J -s glfw3.scm)
-(compile -d0 -O2 -s glfw3.import.scm)
+(define compile-options
+  (cond-expand
+    ((or arm gles) "-O2 -d0 -C -DGLFW_INCLUDE_ES3")
+    (else "-O2 -d0")))
+
+(define link-options
+  (cond-expand
+    (unix "-l:libglfw.so.3")
+    (else "-lglfw")))
+
+(compile ,compile-options ,link-options -J -s glfw3-bindings.scm)
+(compile ,compile-options -s glfw3-bindings.import.scm)
+
+(compile ,compile-options -J -s glfw3.scm)
+(compile ,compile-options -s glfw3.import.scm)
 
 (install-extension
  'glfw3
