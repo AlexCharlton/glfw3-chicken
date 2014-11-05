@@ -246,9 +246,9 @@
                                               )))
                      (else hints))))
     (when (>= (length hints) 2)
-      (let* ([key (car hints)]
-             [val (cadr hints)]
-             [hint (alist-ref key *hints*)])
+      (let* ((key (car hints))
+             (val (cadr hints))
+             (hint (alist-ref key *hints*)))
         (when hint
           (%window-hint (car hint) (if (and (= (length hint) 2)
                                           (eq? (cadr hint) bool:))
@@ -277,12 +277,12 @@
 
 (define-syntax with-window
   (syntax-rules ()
-    [(_ (w h name . keys) body ...)
+    ((_ (w h name . keys) body ...)
      (begin
        (init)
        (make-window w h name . keys)
        body ...
        (%destroy-window (window))
-       (%terminate))]))
+       (%terminate)))))
 
 ) ; end glfw3
