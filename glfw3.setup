@@ -8,7 +8,7 @@
 
 (define link-options
   (cond-expand
-    (unix "-l:libglfw.so.3")
+    ((and unix (not macosx)) "-l:libglfw.so.3")
     (else "-lglfw")))
 
 (compile ,compile-options ,link-options -J -s glfw3-bindings.scm)
