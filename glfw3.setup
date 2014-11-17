@@ -3,7 +3,7 @@
 
 (define compile-options
   (cond-expand
-    ((or arm gles) "-O2 -d0 -C -DGLFW_INCLUDE_ES3")
+    ((or arm gles) "-O2 -d0 -Dgles -C -DGLFW_INCLUDE_ES3")
     (else "-O2 -d0")))
 
 (define link-options

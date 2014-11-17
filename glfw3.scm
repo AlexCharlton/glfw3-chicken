@@ -239,7 +239,7 @@
       (opengl-profile: ,+opengl-any-profile+)))
   (%default-window-hints)
   (let loop ((hints (cond-expand
-                     (arm (append hints (list alpha-bits: 0
+                     (gles (append hints (list alpha-bits: 0
                                               ;; This breaks everything:
                                               ;; https://github.com/glfw/glfw/issues/19
                                               ;; client-api: +opengl-es-api+ 
