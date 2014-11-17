@@ -20,4 +20,4 @@
 (install-extension
  'glfw3
  '("glfw3.so" "glfw3.import.so" "glfw3-bindings.so" "glfw3-bindings.import.so")
- '((version "0.5.2")))
+ '((version "0.5.3")))
