@@ -188,6 +188,12 @@ Returns two values: a pointer to an array of bytes representing the state of all
 ```
 
 ## Version history
+### Version 0.6.0
+20 November 2014
+
+* Add OpenGL ES, Windows, and OS X support
+* Remove Scheme-settable error callback
+
 ### Version 0.5.2
 20 October 2014
 
