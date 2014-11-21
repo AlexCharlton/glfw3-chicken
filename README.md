@@ -24,7 +24,7 @@ For information regarding the GLFW API, see the official [GLFW documentation](ht
 ### High-level interface
     [procedure] (init)
 
-Initializes glfw, as well as `error-callback` and `monitor-callback`. Not needed when using `with-window`.
+Initializes glfw. Not needed when using `with-window`.
 
     [parameter] window
 
@@ -46,12 +46,6 @@ Initializes GLFW, creates a window as per `make-window`, and runs `BODY` before 
 
 ### Callbacks
 `glfw3` provides parameters which contain the functions that are called from GLFW callbacks. The GLFW callbacks are initialized to call these parameters when `init` and `make-window` or `with-window` are used, but they can be changed with the callback setter functions.
-
-    [parameter] error-callback
-
-Called when a GLFW error occurs. Expects a function with the signature `(lambda (CODE MESSAGE) ...)`. `CODE` is one of `+not-initialized+`, `+no-current-context+`, `+invalid-enum+`, `+invalid-value+`, `+out-of-memory+`, `+api-unavailable+`, `+version-unavailable+`, `+platform-error+`, `+format-unavailable+`. `MESSAGE` is a string containing an error message.
-
-Defaults to a function that throws an error and prints `MESSAGE`.
 
     [parameter] window-position-callback
 
@@ -105,7 +99,6 @@ Called when character is entered. Expects a function with the signature `(lambda
 
 Called when a monitor is connected or disconnected. Expects a function with the signature `(lambda (MONITOR EVENT) ...)`. `MONITOR` is a pointer to the affected monitor, `EVENT` is either `+connected+` or `+disconnected+`.
 
-    [procedure] (set-error-callback! [WINDOW [CALLBACK]])
     [procedure] (set-window-position-callback! [WINDOW [CALLBACK]])
     [procedure] (set-window-size-callback! [WINDOW [CALLBACK]])
     [procedure] (set-window-close-callback! [WINDOW [CALLBACK]])

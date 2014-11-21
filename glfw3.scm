@@ -193,6 +193,8 @@
 (define get-cursor-position %get-cursor-pos)
 (define window-should-close? %window-should-close)
 
+;; Error callback in C, rather than Scheme so not all GLFW foreign-lambdas
+;; need to be safe
 (foreign-declare
 "#include \"glfw3.h\"
 void errorCallback(int error, const char* description){
