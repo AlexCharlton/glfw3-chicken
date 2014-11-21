@@ -3,7 +3,6 @@
                window
                make-context-current
                init
-               error-callback
                window-position-callback
                window-size-callback
                window-close-callback
@@ -17,7 +16,6 @@
                key-callback
                char-callback
                monitor-callback
-               set-error-callback!
                set-window-position-callback!
                set-window-size-callback!
                set-window-close-callback!
@@ -61,8 +59,6 @@
                   set-monitor-callback))
 
 ;;; Callbacks
-(define error-callback (make-parameter (lambda (code err)
-                                         (error 'glfw3 err))))
 (define window-position-callback (make-parameter (lambda (window x y) #f)))
 (define window-size-callback (make-parameter (lambda (window w h) #f)))
 (define window-close-callback (make-parameter (lambda (window) #f)))
@@ -77,10 +73,6 @@
 (define key-callback (make-parameter (lambda (window key scancode action mods) #f)))
 (define char-callback (make-parameter (lambda (window char) #f)))
 (define monitor-callback (make-parameter (lambda (monitor event) #f)))
-
-(define-external (glfw3ErrorCallback (int code) (c-string err))
-    void
-  ((error-callback) code err))
 
 (define-external (glfw3WindowPositionCallback (c-pointer window) (int x) (int y))
     void
@@ -142,9 +134,6 @@
     void
   ((monitor-callback) window event))
 
-(define (set-error-callback! #!optional callback)
-  (%set-error-callback (or callback #$glfw3ErrorCallback)))
-
 (define (set-monitor-callback! #!optional callback)
   (%set-monitor-callback (or callback #$glfw3MonitorCallback)))
 
@@ -204,9 +193,15 @@
 (define get-cursor-position %get-cursor-pos)
 (define window-should-close? %window-should-close)
 
+(foreign-declare
+"#include \"glfw3.h\"
+void errorCallback(int error, const char* description){
+     fprintf(stderr, \"GLFW error: %s\\n\", description);
+}")
+
 ;;; Initialization and window creation
 (define (init)
-  (set-error-callback!)
+  (foreign-code "glfwSetErrorCallback((GLFWerrorfun) errorCallback);")
   (%init))
 
 (define window (make-parameter #f))
