@@ -3,6 +3,10 @@
 ## Description
 Bindings to the [GLFW](http://www.glfw.org/) OpenGL window and event management library, version 3.X. Version 3 of GLFW is not backwards compatible with previous major versions of GLFW.
 
+This egg has been tested and /should/ work with Linux, OS X, Windows, and OpenGL ES.
+
+When using with ES, make sure GLFW is appropriately compiled (e.g.: `cmake -DGLFW_USE_EGL=ON -DGLFW_CLIENT_LIBRARY=glesv2`). If ES support is desired on a non-ARM platform, compile this egg with the feature `gles` (e.g.: `chicken-install -D gles glfw3`). Also, for ES, do not call `make-window` with `client-api` set, or else bad things.
+
 ## Installation
 This repository is a [Chicken Scheme](http://call-cc.org/) egg.
 
