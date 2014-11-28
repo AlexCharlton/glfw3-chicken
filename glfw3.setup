@@ -15,7 +15,7 @@
 (compile ,compile-options ,link-options -J -s glfw3-bindings.scm)
 (compile ,compile-options -s glfw3-bindings.import.scm)
 
-(compile ,compile-options -J -s glfw3.scm)
+(compile ,compile-options ,link-options -J -s glfw3.scm)
 (compile ,compile-options -s glfw3.import.scm)
 
 (install-extension
