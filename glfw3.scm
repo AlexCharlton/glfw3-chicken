@@ -233,7 +233,7 @@ void errorCallback(int error, const char* description){
       (context-robustness: ,+context-robustness+)
       (opengl-forward-compat: ,+opengl-forward-compat+ bool:)
       (opengl-debug-context: ,+opengl-debug-context+ bool:)
-      (opengl-profile: ,+opengl-any-profile+)))
+      (opengl-profile: ,+opengl-profile+)))
   (%default-window-hints)
   (let loop ((hints (cond-expand
                      (gles (append hints (list alpha-bits: 0
