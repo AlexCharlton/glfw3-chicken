@@ -9,6 +9,7 @@
 (define link-options
   (cond-expand
     ((and unix (not macosx)) "-l:libglfw.so.3")
+    (macosx "-lglfw -framework Cocoa -framework OpenGL -framework IOKit -framework Corevideo")
     (windows "-lglfw -lopengl32 -lgdi32")
     (else "-lglfw")))
 
