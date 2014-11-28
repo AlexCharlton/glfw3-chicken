@@ -7,6 +7,7 @@ This egg has been tested and /should/ work with Linux, OS X, Windows, and OpenGL
 
 When using with ES, make sure GLFW is appropriately compiled (e.g.: `cmake -DGLFW_USE_EGL=ON -DGLFW_CLIENT_LIBRARY=glesv2`). If ES support is desired on a non-ARM platform, compile this egg with the feature `gles` (e.g.: `chicken-install -D gles glfw3`). Also, for ES, do not call `make-window` with `client-api` set, or else bad things.
 
+
 ## Installation
 This repository is a [Chicken Scheme](http://call-cc.org/) egg.
 
@@ -43,6 +44,15 @@ Performs `glfwMakeContextCurrent` while setting `window`.
 Create a window with title string `NAME` and dimensions `WIDTH` by `HEIGHT`. The keys correspond to the available [GLFW window hints](http://www.glfw.org/docs/latest/window.html#window_hints). `resizable`, `visible`, `decorated`, `sterio`, `srgb-capable`, `opengl-forward-compat`, `opengl-debug-context` accept boolean arguments, while all other accept either an integer or an appropriate GLFW constant as per the documentation. 
 
 Sets the current context to the window that was created. The swap interval of the window is set to the value of the`swap-interval` key. Finally, this initializes all of the window-specific callbacks.
+
+When using with OS X, make sure you ask for the right context. Only OS X 10.7+ support core contexts, and only limited contexts are supported. See [the GLFW FAQ](http://www.glfw.org/faq.html#how-do-i-create-an-opengl-30-context). For instance:
+
+    (make-window WIDTH HEIGHT NAME
+                 context-version-major: 3
+                 context-version-minor: 2
+                 opengl-forward-compat: #t
+                 opengl-profile: +opengl-core-profile+)
+    
 
     [macro] (with-window (WIDTH HEIGHT NAME . KEYS) BODY ...)
 
@@ -192,7 +202,7 @@ Returns two values: a pointer to an array of bytes representing the state of all
 ```
 
 ## Version history
-### Version 0.6.0
+### Version 0.6.1
 20 November 2014
 
 * Add OpenGL ES, Windows, and OS X support
