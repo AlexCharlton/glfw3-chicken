@@ -9,7 +9,7 @@
 (define link-options
   (cond-expand
     ((and unix (not macosx)) (car (with-input-from-pipe "pkg-config glfw3 --libs" read-lines)))
-    (macosx "-lglfw -framework Cocoa -framework OpenGL -framework IOKit -framework Corevideo")
+    (macosx "-lglfw -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo")
     (windows "-lglfw -lopengl32 -lgdi32")
     (else "-lglfw")))
 
